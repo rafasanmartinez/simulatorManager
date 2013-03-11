@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PROCESS model-entity="JSFProcess">
+ <PROCESS-ITEM NAME="rules:#configuracion.xhtml"
+  PATH="/configuracion.xhtml" SHAPE="240,33,0,0" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM NAME="rules:" SHAPE="32,17,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules::0" NAME="item" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT ID="home::#index.xhtml" NAME="output"
+    PATH="/index.xhtml" TARGET="rules:#index.xhtml" TITLE="home" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="configuracion::#configuracion.xhtml"
+    NAME="output1" PATH="/configuracion.xhtml"
+    TARGET="rules:#configuracion.xhtml" TITLE="configuracion" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="tramosCrud::#tramoscrud.xhtml"
+    NAME="output2" PATH="/tramoscrud.xhtml"
+    TARGET="rules:#tramoscrud.xhtml" TITLE="tramosCrud" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:#index.xhtml" PATH="/index.xhtml"
+  SHAPE="32,161,0,0" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM NAME="rules:#tramoscrud.xhtml" PATH="/tramoscrud.xhtml"
+  SHAPE="272,209,0,0" model-entity="JSFProcessGroup"/>
+</PROCESS>

@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:a4j="http://richfaces.org/a4j"
+	xmlns:rich="http://richfaces.org/rich"
+	xmlns:composite="http://java.sun.com/jsf/composite"
+	xmlns:my="http://java.sun.com/jsf/composite/components">
+
+<!-- INTERFACE -->
+<composite:interface>
+	<composite:attribute name="tramo" />
+</composite:interface>
+
+<!-- IMPLEMENTATION -->
+<composite:implementation>
+	<div style="display: table">
+				 
+		<div style="display: table-row">
+			<my:labeledInput etiqueta="Nombre" nombre="nombre"
+				valor="#{tramo.nombre}" longitud="60" />
+		</div>
+	    
+		<div style="display: table-row">
+			<my:labeledInput etiqueta="Sentido" nombre="sentido"
+				valor="#{tramo.sentido}" longitud="60" />
+		</div>
+		
+		<div style="display: table-row">
+			<my:labeledInput etiqueta="Longitud (m)" nombre="longitud"
+				valor="#{tramo.longitud}" longitud="20" />
+		</div>
+		<div style="display: table-row">
+			<my:labeledInput etiqueta="Sensor Entrada" nombre="loopEntrada"
+				valor="#{tramo.loopEntrada}" longitud="20" />
+		</div>
+		<div style="display: table-row">
+			<my:labeledInput etiqueta="Sensor Salida" nombre="loopSalida"
+				valor="#{tramo.loopSalida}" longitud="20" />
+		</div>
+		<div style="display: table-row">
+			<my:labeledInput etiqueta="Umbral Tráfico Pesado (s)"
+				nombre="umbralSegundosPesado" valor="#{tramo.umbralSegundosPesado}"
+				longitud="15" />
+		</div>
+		<div style="display: table-row">
+			<my:labeledInput etiqueta="Umbral Atasco (s)"
+				nombre="umbralSegundosAtasco" valor="#{tramo.umbralSegundosAtasco}"
+				longitud="15" />
+		</div>
+	</div>
+	<div style="commandBar">
+		
+	</div>
+</composite:implementation>
+</html>

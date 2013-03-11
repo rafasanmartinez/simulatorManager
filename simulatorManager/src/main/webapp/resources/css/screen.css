@@ -1,0 +1,300 @@
+div {
+    display: block;
+    font-size: 100%;
+}
+
+
+input {
+	margin:none;
+}
+/* Core styles for the page */
+body {
+  width:100%;
+  height:100;
+  display:block;
+  margin:0 auto;
+  padding:0;
+  font-family: droid-sans, sans-serif;
+  background: #e8e5e0;
+  color: #005572
+}
+
+#content {
+  clear:both;
+  background:white;
+  padding:0px;
+  min-height: 490px;
+}
+
+/* Clases para los links del menú principal */
+.menuLink {
+	font-size:1.25em;
+	color:white;
+	font-weight: normal;
+}
+
+.menuLink:hover {
+	color:orange;
+	text-decoration: none;
+}
+
+.menulink:visited {
+	color:white;
+}
+
+
+
+/* Estilo para los paneles a toda página */
+.panelTodaPagina {
+	min-height:490px;
+	border:none;
+}
+
+.panelTodaPaginaCabecera {
+	font-size:1em;
+	color:white;
+	font-weight:normal;
+	text-align:center;
+}
+
+/* Estilo para las tablas de mantenimiento a toda pagina */
+
+.tablaMantenimientoTodaPagina {
+width:100%;	
+}
+
+
+/* Estilo para los forms */
+.formCell {
+	display: table-cell;
+	vertical-align: top;
+	padding:3px;
+}
+
+.fieldLabel {
+	white-space:nowrap;
+}
+
+.fieldValue {
+	float: left;
+}
+
+.fieldInvalidMessage {
+	clear: both;
+}
+
+
+#container {
+display:block;
+margin: 0 auto;        
+padding: 0 0 0 0;
+width:960px; /* subtract 40px from banner width for padding */
+padding-top: 0px;
+text-align:left;
+/*box-shadow: 1px 1px 1px #d5d5d5;*/
+}
+
+#cabecera {
+  float:left;
+  width:100%;
+  background-color:white;
+  margin-bottom: 15px;
+}
+
+#cabeceraLeft {
+  float:left;
+}
+
+.avisoFijo {
+	
+	font-type: 1.3em;
+	font-weight:bold;
+	text-align: center;
+}
+
+#logo {
+    background:white;
+    float:right;
+}
+
+#menuprincipalcontainer {
+	clear:both;
+	width:100%;
+}
+
+
+
+#titulo {
+  float:left;
+  font-family: aguafina-script, serif;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 250%;
+}
+
+
+
+
+#aside {
+  font-size: 0.9em;
+  width: 275px;
+  float: left;
+  margin: 20px 0px;
+  border: 1px solid #D5D5D5;
+  background: #F1F1F1;
+  background-image: url(#{request.contextPath}/resources/gfx/asidebkg.png);
+  background-repeat: repeat-x;
+  padding: 20px;
+}
+
+.menulink {
+	color:white;
+}
+
+#menubar{
+	clear:both;
+}
+#aside ul {
+  padding-left: 30px;
+}
+.dualbrand {
+  float:right;
+  text-align:right;
+  padding-right: 10px;
+}
+#footer {
+  clear: both;
+  text-align: center;
+  color: #666666;
+  font-size: 0.85em;
+}
+code {
+  font-size: 1.1em;
+}
+a {
+  color: #4a5d75;
+  text-decoration: none;
+}
+a:hover {
+  color: #369;
+  text-decoration: underline;
+}
+
+h1 {
+  font-size: 3.25em;
+  margin:0;
+}
+
+h2 {
+  font-size: 1em;
+}
+h3 {
+  color:#243446;
+}
+h4 {
+}
+h5 {
+margin:0;
+}
+h6 {
+}
+/* Member registration styles */
+.form {
+  padding: 1em;
+  font: 80%/1 sans-serif;
+  width: 375px;
+  border: 1px solid #D5D5D5;
+}
+label {
+  float: left;
+  width: 15%;
+  margin-left: 20px;
+  margin-right: 0.5em;
+  padding-top: 0.2em;
+  text-align: right;
+  font-weight: bold;
+  color:#363636;
+}
+
+
+.register {
+  float: left;
+  margin-left: 85px;
+}
+
+/*  -----  table style  -------  */
+
+
+/*  = Simple Table style (black header, grey/white stripes  */
+
+.simpletablestyle {
+  background-color:#E6E7E8;
+  clear:both;
+  width: 550px;
+}
+
+.simpletablestyle img {
+  border:0px;
+}
+
+.simpletablestyle td {
+  height:2em;
+  padding-left: 6px;
+  font-size:11px;
+  padding:5px 5px;
+}
+
+.simpletablestyle th {
+	background: url(#{request.contextPath}/resources/gfx/bkg-blkheader.png) black repeat-x top left;
+  font-size:12px;
+  font-weight:normal;
+  padding:0 10px 0 5px;
+  border-bottom:#999999 dotted 1px;
+}
+
+.simpletablestyle thead {
+  background: url(#{request.contextPath}/resources/gfx/bkg-blkheader.png) black repeat-x top left;
+  height:31px;
+  font-size:10px;
+  font-weight:bold;
+  color:#FFFFFF;
+  text-align:left;
+}
+
+.simpletablestyle .header a {
+  color:#94aebd;
+}
+
+.simpletablestype tfoot {
+	height: 20px;
+  font-size: 10px;
+  font-weight: bold;
+  background-color: #EAECEE;
+  text-align: center;
+}
+
+.simpletablestyle tr.header td {
+  padding: 0px 10px 0px 5px;
+}
+
+
+.simpletablestyle .subheader {
+  background-color: #e6e7e8;
+  font-size:10px;
+  font-weight:bold;
+  color:#000000;
+  text-align:left;
+}
+
+/* Using new CSS3 selectors for styling*/
+.simpletablestyle tr:nth-child(odd) {
+  background: #f4f3f3;
+}
+.simpletablestyle tr:nth-child(even) {
+  background: #ffffff;
+}
+
+.simpletablestyle td a:hover {
+  color:#3883ce;
+  text-decoration:none; 
+}

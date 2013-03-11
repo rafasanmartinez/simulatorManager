@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:a4j="http://richfaces.org/a4j"
+	xmlns:rich="http://richfaces.org/rich"
+	xmlns:composite="http://java.sun.com/jsf/composite">
+
+<!-- INTERFACE -->
+<composite:interface>
+	<composite:attribute name="nombre" />
+	<composite:attribute name="etiqueta" />
+	<composite:attribute name="valor" />
+	<composite:attribute name="longitud" default="20" />
+</composite:interface>
+
+<!-- IMPLEMENTATION -->
+<composite:implementation>
+	<div class="formCell">
+		<h:outputLabel for="#{cc.attrs.nombre}" value="#{cc.attrs.etiqueta}:"
+			styleClass="fieldLabel" />
+	</div>
+	<div class="formCell">
+		<div class="fieldValue">
+			<h:inputText id="#{cc.attrs.nombre}" value="#{cc.attrs.valor}"
+				size="#{cc.attrs.longitud}">
+				<rich:validator />
+			</h:inputText>
+		</div>
+		<div style="clear: both" class="fieldInvalidMessage">
+			<rich:message for="#{cc.attrs.nombre}" errorClass="invalid" />
+		</div>
+	</div>
+</composite:implementation>
+</html>

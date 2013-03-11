@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition template="/WEB-INF/templates/default.xhtml"
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:a4j="http://richfaces.org/a4j"
+	xmlns:rich="http://richfaces.org/rich"
+	xmlns:my="http://java.sun.com/jsf/composite/components">
+	<ui:define name="content">
+		<rich:panel headerClass="panelTodaPaginaCabecera"
+			styleClass="panelTodaPagina">
+			<f:facet name="header">Mantenimiento de Tramos</f:facet>
+			<h:form id="formBody">
+				<!--  
+			<div id="#barraMenuBotones">
+				<div class="botonComando">
+					<a4j:commandButton value="Nuevo Tramo"/>
+				</div>
+			</div>
+			-->
+				<rich:panel rendered="#{empty tramos}" styleClass="avisoFijo">
+					<h:outputText
+						value="No se han especificado tramos hasta este momento" />
+				</rich:panel>
+
+				<rich:dataTable id="tablaTramos" rendered="#{not empty tramos}"
+					value="#{tramos}" var="_tramo"
+					styleClass="tablaMantenimientoTodaPagina">
+
+					<rich:column id="edit">
+						<a4j:commandLink styleClass="no-decor" render="tramoPanel"
+							execute="@this"
+							oncomplete="#{rich:component('editTramoPopup')}.show()"
+							action="#{tramoController.comenzarModificacion(_tramo)}">
+                         Modificar
+						</a4j:commandLink>
+					</rich:column>
+
+					<rich:column id="tramo_nombre">
+						<f:facet name="header">Nombre</f:facet>
+                      #{_tramo.nombre}
+                   </rich:column>
+					<rich:column id="tramo_sentido">
+						<f:facet name="header">Sentido</f:facet>
+                      #{_tramo.sentido}
+                   </rich:column>
+					<rich:column id="tramo_longitud">
+						<f:facet name="header">Longitud (m)</f:facet>
+                      #{_tramo.longitud}
+                   </rich:column>
+					<rich:column id="tramo_loopEntrada">
+						<f:facet name="header">Sensor Entrada</f:facet>
+                      #{_tramo.loopEntrada}
+                   </rich:column>
+					<rich:column id="tramo_loopSalida">
+						<f:facet name="header">Sensor Salida</f:facet>
+                      #{_tramo.loopSalida}
+                   </rich:column>
+					<rich:column id="tramo_umbralSegundosPesado">
+						<f:facet name="header">Umbral Pesado (s)</f:facet>
+                      #{_tramo.umbralSegundosPesado}
+                   </rich:column>
+					<rich:column id="tramo_umbralSegundosAtasco">
+						<f:facet name="header">Umbral Atasco (s)</f:facet>
+                      #{_tramo.umbralSegundosAtasco}
+                   </rich:column>
+				</rich:dataTable>
+			</h:form>
+			<h:outputText value="{#{tramoController.conversationInfo}" />
+
+				<rich:popupPanel id="editTramoPopup" modal="true"
+					onmaskclick="#{rich:component('editTramoPopup')}.hide()"
+					domElementAttachment="form" autosized="true">
+					<f:facet name="header">
+						<h:outputText value="Modificar Tramo" />
+					</f:facet>
+					<f:facet name="controls">
+						<h:outputLink value="#"
+							onclick="#{rich:component('editTramoPopup')}.hide(); return false;">
+                   X
+                </h:outputLink>
+					</f:facet>
+					<h:form id="modifycarTramoForm">
+						<h:panelGroup id="tramoPanel">
+							<my:tramoForm tramo="#{tramoController.tramo}" />
+							<div class="formCommandBar">
+								<a4j:commandButton id="registrarCambios"
+									action="#{tramoController.registrarCambios()}"
+									value="Registrar Cambios" render="conversationInfo"
+									execute="@form" />
+							</div>
+							<h:outputText value="#{tramoController.conversationInfo}"
+								id="conversationInfo" />
+						</h:panelGroup>
+					</h:form>
+				</rich:popupPanel>
+
+
+		</rich:panel>
+
+
+	</ui:define>
+</ui:composition>

@@ -1,0 +1,41 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:rich="http://richfaces.org/rich"
+    xmlns:a4j="http://richfaces.org/a4j"
+    >
+<h:head>
+   <title>Gestor de Simulador de Trafico</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+</h:head>
+<h:body>
+    <h:outputStylesheet name="screen.css" library="css"/>
+    <div id="container">
+            <div id="cabecera">
+                <div id="titulo">
+                    <h:graphicImage name="CabeceraProjecto.png" library="gfx" alt="Proyecto Fin de Carrera"/>
+                </div>
+                <div id="logo">
+                     <h:graphicImage name="ucalogob.png" library="gfx" alt="Universidad de Cadiz"/>
+                </div>
+                
+                <h:form id="menuform" >
+                <div id="menuprincipalcontainer">
+                	<rich:toolbar id="menuPricipal" itemSeparator="line" height="30px">
+                		<h:commandLink value="Home" styleClass="menuLink"  action="#{pageController.goHome}" />
+                		<h:commandLink value="Configuración" styleClass="menuLink" action="#{pageController.goConfiguracion}" />
+                		<h:commandLink value="Mantenimiento Tramos" styleClass="menuLink" action="#{pageController.goTramosCrud}" />
+                	</rich:toolbar>
+                </div>
+                </h:form>
+            </div>
+            <div id="content">
+            <ui:insert name="content">
+                [Template content will be inserted here]
+            </ui:insert>
+        </div>
+        </div>
+</h:body>
+</html>

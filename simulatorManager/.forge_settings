@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<configuration>
+<rootpath>"/rest"</rootpath>
+<rest>
+<applicationclass>
+<package>uca.rafasanmartinez.pfc.sm.rest</package>
+<name>C:\/Users/Rafa/Documents/pcfwseclipsejuno/simulatorManager/src/main/java/uca/rafasanmartinez/pfc/sm/rest/JaxRsActivator.java</name>
+</applicationclass>
+</rest>
+</configuration>
