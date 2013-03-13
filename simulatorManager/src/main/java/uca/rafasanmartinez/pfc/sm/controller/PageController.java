@@ -2,12 +2,10 @@ package uca.rafasanmartinez.pfc.sm.controller;
 
 import java.io.Serializable;
 
-import javax.enterprise.context.SessionScoped;
-import javax.inject.Named;
+import javax.enterprise.inject.Model;
 
 @SuppressWarnings("serial")
-@Named
-@SessionScoped
+@Model
 public class PageController implements Serializable {
 	
 	

@@ -24,15 +24,16 @@ import javax.inject.Inject;
 
 import org.jboss.arquillian.container.test.api.Deployment;
 import org.jboss.arquillian.junit.Arquillian;
-import uca.rafasanmartinez.pfc.sm.model.Member;
-import uca.rafasanmartinez.pfc.sm.service.MemberRegistration;
-import uca.rafasanmartinez.pfc.sm.util.Resources;
 import org.jboss.shrinkwrap.api.Archive;
 import org.jboss.shrinkwrap.api.ShrinkWrap;
 import org.jboss.shrinkwrap.api.asset.EmptyAsset;
 import org.jboss.shrinkwrap.api.spec.WebArchive;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+
+import uca.rafasanmartinez.pfc.sm.model.Member;
+import uca.rafasanmartinez.pfc.sm.service.MemberRegistration;
+import uca.rafasanmartinez.pfc.sm.util.Resources;
 
 @RunWith(Arquillian.class)
 public class MemberRegistrationTest {

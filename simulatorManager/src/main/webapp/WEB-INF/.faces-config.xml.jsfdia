@@ -2,6 +2,17 @@
 <PROCESS model-entity="JSFProcess">
  <PROCESS-ITEM NAME="rules:#configuracion.xhtml"
   PATH="/configuracion.xhtml" SHAPE="240,33,0,0" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM NAME="rules:#index.xhtml" PATH="/index.xhtml"
+  SHAPE="32,161,0,0" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM NAME="rules:#tramoscrud.xhtml" PATH="/tramoscrud.xhtml"
+  SHAPE="272,209,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:#tramoscrud.xhtml:0" NAME="item"
+   PATH="/tramoscrud.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT ID="modificar::#tramoscrudmodify.xhtml"
+    NAME="output" PATH="/tramoscrudmodify.xhtml"
+    TARGET="rules:#tramoscrudmodify.xhtml" TITLE="modificar" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
  <PROCESS-ITEM NAME="rules:" SHAPE="32,17,0,0" model-entity="JSFProcessGroup">
   <PROCESS-ITEM ID="rules::0" NAME="item" model-entity="JSFProcessItem">
    <PROCESS-ITEM-OUTPUT ID="home::#index.xhtml" NAME="output"
@@ -14,8 +25,13 @@
     TARGET="rules:#tramoscrud.xhtml" TITLE="tramosCrud" model-entity="JSFProcessItemOutput"/>
   </PROCESS-ITEM>
  </PROCESS-ITEM>
- <PROCESS-ITEM NAME="rules:#index.xhtml" PATH="/index.xhtml"
-  SHAPE="32,161,0,0" model-entity="JSFProcessGroup"/>
- <PROCESS-ITEM NAME="rules:#tramoscrud.xhtml" PATH="/tramoscrud.xhtml"
-  SHAPE="272,209,0,0" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM NAME="rules:#tramoscrudmodify.xhtml"
+  PATH="/tramoscrudmodify.xhtml" SHAPE="480,193,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:#tramoscrudmodify.xhtml:0" NAME="item"
+   PATH="/tramoscrudmodify.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT ID="volver::#tramoscrud.xhtml" NAME="output"
+    PATH="/tramoscrud.xhtml" TARGET="rules:#tramoscrud.xhtml"
+    TITLE="volver" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
 </PROCESS>

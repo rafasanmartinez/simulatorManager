@@ -29,12 +29,11 @@
 					styleClass="tablaMantenimientoTodaPagina">
 
 					<rich:column id="edit">
-						<a4j:commandLink styleClass="no-decor" render="tramoPanel"
+						<h:commandLink styleClass="no-decor"
 							execute="@this"
-							oncomplete="#{rich:component('editTramoPopup')}.show()"
 							action="#{tramoController.comenzarModificacion(_tramo)}">
                          Modificar
-						</a4j:commandLink>
+						</h:commandLink>
 					</rich:column>
 
 					<rich:column id="tramo_nombre">

@@ -5,11 +5,15 @@ import java.util.logging.Logger;
 
 import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
+import javax.ejb.Stateful;
 import javax.enterprise.context.Conversation;
 import javax.enterprise.context.ConversationScoped;
 import javax.enterprise.inject.Produces;
 import javax.inject.Inject;
 import javax.inject.Named;
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
+import javax.persistence.PersistenceContextType;
 
 import uca.rafasanmartinez.pfc.sm.model.Tramo;
 
@@ -20,13 +24,20 @@ import uca.rafasanmartinez.pfc.sm.model.Tramo;
  * 
  */
 @SuppressWarnings("serial")
-@ConversationScoped @Named
+@ConversationScoped
+@Named
+@Stateful
 public class TramoController implements Serializable {
 
 	@Inject
 	Logger log;
 
-	private @Inject Conversation conversation;
+	@PersistenceContext(type = PersistenceContextType.EXTENDED)
+    private EntityManager em;
+
+	private @Inject
+	Conversation conversation;
+	
 	private Tramo tramo;
 
 	/**
@@ -41,18 +52,18 @@ public class TramoController implements Serializable {
 			log.info("Obteniendo Tramo" + tramo.getNombre());
 		return tramo;
 	}
-	
-	public void comenzarModificacion(Tramo tramo)
-	{
+
+	public String comenzarModificacion(Tramo tramo) {
 		log.info("Poniendo Tramo" + tramo.getNombre());
 		this.tramo = tramo;
-		conversation.begin();
+		if (conversation.isTransient())
+			conversation.begin();
 		log.info("Iniciando conversación " + conversation.getId());
+		return "modificar";
 	}
-	
-	public void iniciarConversación()
-	{
-		
+
+	public void iniciarConversación() {
+
 	}
 
 	/**
@@ -64,28 +75,31 @@ public class TramoController implements Serializable {
 		this.tramo = tramo;
 	}
 
-	public void registrarCambios() {
+	public String registrarCambios() {
 		log.info("Registrando Cambios en tramo" + tramo.getNombre());
+		em.merge(tramo);
 		conversation.end();
 		log.info("Conversacion terminada");
+		return "volver";
 	}
 
 	@PostConstruct
 	public void inicializacion() {
 		log.info("Creando controlador de Tramos");
 	}
-	
+
 	@PreDestroy
 	public void destruccion() {
 		log.info("Destruyendo el controlador.");
 	}
-	
-	public String  getConversationInfo() {
-		return "Conversation:" + conversation.getId() + " Is Transient: " + conversation.isTransient();
+
+	public String getConversationInfo() {
+		return "Conversation:" + conversation.getId() + " Is Transient: "
+				+ conversation.isTransient();
 	}
-	
+
 	public void setConversationInfo(String info) {
-		
+
 	}
-	
+
 }

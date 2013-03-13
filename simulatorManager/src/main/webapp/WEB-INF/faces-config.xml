@@ -28,6 +28,25 @@
    <to-view-id>/tramoscrud.xhtml</to-view-id>
   </navigation-case>
  </navigation-rule>
+ <navigation-rule>
+  <description>Navegación desde la vista de mantanimiento de tramos</description>
+  <display-name>tramoscrud</display-name>
+  <from-view-id>/tramoscrud.xhtml</from-view-id>
+  <navigation-case>
+   <description>Enviar la vista a la pantalla de modificación</description>
+   <from-outcome>modificar</from-outcome>
+   <to-view-id>/tramoscrudmodify.xhtml</to-view-id>
+  </navigation-case>
+ </navigation-rule>
+ <navigation-rule>
+  <display-name>Modificación de Tramos</display-name>
+  <from-view-id>/tramoscrudmodify.xhtml</from-view-id>
+  <navigation-case>
+   <description>Volver a mantenimiento de tramos</description>
+   <from-outcome>volver</from-outcome>
+   <to-view-id>/tramoscrud.xhtml</to-view-id>
+  </navigation-case>
+ </navigation-rule>
  <!-- This descriptor activates the JSF 2.0 Servlet 
  Write your navigation rules here. You are encouraged to use CDI 
         for creating @Named managed beans. -->

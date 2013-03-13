@@ -9,7 +9,6 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Version;
 import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 
 @SuppressWarnings("serial")
@@ -43,18 +42,18 @@ public class Tramo implements Serializable
 
    @NotNull
    @Column
-   @Pattern(message = "Ha de ser un número natural", regexp = "^(?:0|[1-9]\\d*)$")
+   /*@Pattern(message = "Ha de ser un número natural", regexp = "^(?:0|[1-9]\\d*)$")*/
    private
    int longitud;
 
    @NotNull
    @Column
-   @Pattern(message = "Ha de ser un número natural", regexp = "^(?:0|[1-9]\\d*)$")
+   /* @Pattern(message = "Ha de ser un número natural", regexp = "^(?:0|[1-9]\\d*)$") */
    private int umbralSegundosAtasco;
 
    @NotNull
    @Column
-   @Pattern(message = "Ha de ser un número natural", regexp = "^(?:0|[1-9]\\d*)$")
+   /* @Pattern(message = "Ha de ser un número natural", regexp = "^(?:0|[1-9]\\d*)$") */
    private int umbralSegundosPesado;
 
    @NotNull
