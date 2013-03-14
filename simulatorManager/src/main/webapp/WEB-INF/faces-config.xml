@@ -27,6 +27,11 @@
    <from-outcome>tramosCrud</from-outcome>
    <to-view-id>/tramoscrud.xhtml</to-view-id>
   </navigation-case>
+  <navigation-case>
+   <description>Si se atrapa una excepción que tenga que ver con datos caducados por la navegación, se envía la aplicación a esta página de error</description>
+   <from-outcome>datosCaducados</from-outcome>
+   <to-view-id>/datosCaducados.xhtml</to-view-id>
+  </navigation-case>
  </navigation-rule>
  <navigation-rule>
   <description>Navegación desde la vista de mantanimiento de tramos</description>
@@ -47,6 +52,9 @@
    <to-view-id>/tramoscrud.xhtml</to-view-id>
   </navigation-case>
  </navigation-rule>
+ <factory>
+  <exception-handler-factory>uca.rafasanmartinez.pfc.sm.util.SimulatorExceptionHandlerFactory</exception-handler-factory>
+ </factory>
  <!-- This descriptor activates the JSF 2.0 Servlet 
  Write your navigation rules here. You are encouraged to use CDI 
         for creating @Named managed beans. -->

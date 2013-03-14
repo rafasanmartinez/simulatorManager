@@ -1,0 +1,6 @@
+/**
+ * Este 
+ */
+
+window.onbeforeunload = function () {
+}

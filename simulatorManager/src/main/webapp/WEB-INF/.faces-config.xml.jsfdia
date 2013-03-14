@@ -23,6 +23,9 @@
    <PROCESS-ITEM-OUTPUT ID="tramosCrud::#tramoscrud.xhtml"
     NAME="output2" PATH="/tramoscrud.xhtml"
     TARGET="rules:#tramoscrud.xhtml" TITLE="tramosCrud" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="datosCaducados::#datosCaducados.xhtml"
+    NAME="output3" PATH="/datosCaducados.xhtml"
+    TARGET="rules:#datosCaducados.xhtml" TITLE="datosCaducados" model-entity="JSFProcessItemOutput"/>
   </PROCESS-ITEM>
  </PROCESS-ITEM>
  <PROCESS-ITEM NAME="rules:#tramoscrudmodify.xhtml"
@@ -34,4 +37,7 @@
     TITLE="volver" model-entity="JSFProcessItemOutput"/>
   </PROCESS-ITEM>
  </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:#datosCaducados.xhtml"
+  PATH="/datosCaducados.xhtml" SHAPE="141,258,0,0"
+  model-entity="JSFProcessGroup" persistent="true"/>
 </PROCESS>
