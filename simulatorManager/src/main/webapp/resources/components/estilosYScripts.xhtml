@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:a4j="http://richfaces.org/a4j"
+	xmlns:rich="http://richfaces.org/rich"
+	xmlns:composite="http://java.sun.com/jsf/composite"
+	xmlns:my="http://java.sun.com/jsf/composite/components">
+
+<!-- INTERFACE -->
+<composite:interface>
+	<composite:attribute name="estilosYScripts" />
+</composite:interface>
+
+<!-- IMPLEMENTATION -->
+<composite:implementation>
+	<h:outputStylesheet name="screen.css" library="css" />
+	<h:outputScript name="forzarRefresco.js" library="js" />
+</composite:implementation>
+</html>
