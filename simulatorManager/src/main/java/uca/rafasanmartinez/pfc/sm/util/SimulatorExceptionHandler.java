@@ -41,7 +41,8 @@ public class SimulatorExceptionHandler extends ExceptionHandlerWrapper {
 				    //final ExternalContext externalContext = facesContext.getExternalContext();
 
 				    nav.performNavigation("datosCaducados");
-
+				    //final FacesContext ctx = FacesContext.getCurrentInstance();
+				   
 				    while (t.getCause() != null) {
 					    t = t.getCause();
 					    System.out.println("Mensaje de error: " + t.getMessage() + " Class: " + t.getClass().getName());

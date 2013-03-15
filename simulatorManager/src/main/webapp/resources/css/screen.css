@@ -43,7 +43,6 @@ body {
 }
 
 
-
 /* Estilo para los paneles a toda página */
 .panelTodaPagina {
 	min-height:490px;
@@ -289,7 +288,7 @@ label {
 
 /* Using new CSS3 selectors for styling*/
 .simpletablestyle tr:nth-child(odd) {
-  background: #f4f3f3;
+  background: #f4f3f3;			
 }
 .simpletablestyle tr:nth-child(even) {
   background: #ffffff;
@@ -298,4 +297,32 @@ label {
 .simpletablestyle td a:hover {
   color:#3883ce;
   text-decoration:none; 
+}
+
+.error {
+	padding:60px;
+}
+
+.cabeceraPaginaError,.lineaPaginaError,.contenedorPaginaError {
+	width: 100%;
+	text-align: center;
+}
+
+.cabeceraPaginaError {
+	color: red;
+	font-weight: bold;
+	font-size: 1.5em;			
+	margin-bottom: 30px;
+}
+
+.lineaPaginaError {
+	margin-bottom: 12px;
+}
+
+.botonPaginaError {
+	font-size: 1.2em;
+}
+
+.contenedorPaginaError {
+    margin-top:5px;
 }

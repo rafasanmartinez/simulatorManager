@@ -1,16 +1,34 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<ui:composition template="/WEB-INF/templates/default.xhtml"
-                xmlns="http://www.w3.org/1999/xhtml"
-                xmlns:ui="http://java.sun.com/jsf/facelets"
-                xmlns:f="http://java.sun.com/jsf/core"
-                xmlns:h="http://java.sun.com/jsf/html"
-                xmlns:a4j="http://richfaces.org/a4j"
-                xmlns:rich="http://richfaces.org/rich"
-                xmlns:my="http://java.sun.com/jsf/composite/components">
-    <ui:define name="content">
-     <rich:panel headerClass="panelTodaPaginaCabecera" styleClass="panelTodaPagina">
-      	<f:facet name="header" >Datos Caducados</f:facet>
-      	<h:outputText value="Los datos estan caducados"/>
-      </rich:panel>
-    </ui:define>
+<ui:composition template="/WEB-INF/templates/error.xhtml"
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:a4j="http://richfaces.org/a4j"
+	xmlns:rich="http://richfaces.org/rich"
+	xmlns:my="http://java.sun.com/jsf/composite/components">
+	<ui:define name="content">
+		<h:outputStylesheet name="error.css" library="css" />
+		<div class="cabeceraPaginaError">
+			<h:outputText value="Página con Datos Caducados" />
+		</div>
+		<div class="lineaPaginaError">
+			<h:outputText
+				value="Usted ha intentado entrar en una página cuyos datos ya habían caducado." />
+		</div>
+		<div class="lineaPaginaError">
+			<h:outputText styleClass="lineaPaginaError"
+				value="Probablemente ha utilizado los botones 'Atrás' y 'Adelante' de su navegador." />
+		</div>
+		<div class="lineaPaginaError">
+			<h:outputText styleClass="lineaPaginaError"
+				value="Puede continuar con la tarea que estaba llevando a cabo pulsando el botón a continuación." />
+		</div>
+		<div class="contenedorPaginaError">
+			<h:form>
+				<h:commandButton value="Continuar" action="#{pageController.goHome}"
+					styleClass="botonPaginaError" />
+			</h:form>
+		</div>
+	</ui:define>
 </ui:composition>
