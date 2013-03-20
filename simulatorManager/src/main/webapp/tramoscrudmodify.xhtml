@@ -12,18 +12,28 @@
 			<f:event type="preRenderView"
 				listener="#{preRender.log('tramoscrudmodify.xhtml')}" />
 		</f:metadata>
+		<style type="text/css">
+#cuerpoDePanel_body {
+	text-align: center;
+}
+</style>
 		<rich:panel headerClass="panelTodaPaginaCabecera"
-			styleClass="panelTodaPagina">
+			styleClass="panelTodaPagina" id="cuerpoDePanel">
 			<f:facet name="header">Modificar Tramo</f:facet>
-			<div class="formDeEntrada" style="margin-top:20px">
+			<div class="formDeEntrada" style="margin-top: 20px">
 				<h:form id="formBody">
 					<my:tramoForm tramo="#{tramoController.tramo}" />
 
-					<div class="barraDeComandosForm">
-						<a4j:commandButton id="registrarCambios"
-							action="#{tramoController.registrarCambios()}"
-							value="Registrar Cambios" styleClass="botonCommand" />
+					<div class="barraDeComandosContainer">
+						<div class="barraDeComandos">
+							<a4j:commandButton styleClass="botonCommand"
+								action="#{tramoController.registrarCambios()}"
+								value="Registrar Cambios" />
+							<span class="botonSeparador">&#160;</span>
+							<a4j:commandButton styleClass="botonCommand" value="Cancelar" />
+						</div>
 					</div>
+
 					<!--  <h:outputText value="#{tramoController.conversationInfo}"
 						id="conversationInfo" /> -->
 				</h:form>
