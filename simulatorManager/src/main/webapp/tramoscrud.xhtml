@@ -23,17 +23,25 @@
 				</div>
 			</div>
 			-->
+				<div class="crudBarraBotonesContainer">
+					<div class="crudBarraBotones">
+						<a4j:commandButton styleClass="botonCommand"
+							action="#{tramoController.comenzarNuevo()}" value="Tramo Nuevo" />
+					</div>
+				</div>
+
 				<rich:panel rendered="#{empty tramos}" styleClass="avisoFijo">
 					<h:outputText
 						value="No se han especificado tramos hasta este momento" />
 				</rich:panel>
+
 
 				<rich:dataTable id="tablaTramos" rendered="#{not empty tramos}"
 					value="#{tramos}" var="_tramo"
 					styleClass="tablaMantenimientoTodaPagina">
 
 					<rich:column id="modificarOBorrar">
-					
+
 						<h:commandLink styleClass="no-decor" execute="@this"
 							action="#{tramoController.comenzarModificacion(_tramo)}">
 							<h:graphicImage value="/resources/gfx/Edit_16x16.png"

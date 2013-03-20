@@ -39,8 +39,11 @@ public class TramoController implements Serializable {
 	Conversation conversation;
 	
 	private Tramo tramo;
+	
+	private Tramo nuevoTramo;
 
 	/**
+	 * Devuelve el tramo en modificación
 	 * @return the tramo
 	 */
 	@Produces
@@ -52,6 +55,39 @@ public class TramoController implements Serializable {
 			log.info("Obteniendo Tramo" + tramo.getNombre());
 		return tramo;
 	}
+	
+	/**
+	 * Devuelve el nuevo tramo a crear
+	 * @return
+	 */
+	@Produces
+	@Named
+	public Tramo getNuevoTramo() {		
+		return nuevoTramo;
+	}
+	
+	/**
+	 * Guarda el tramo a crear
+	 * @param tramo
+	 *            
+	 */	
+	public void setNuevoTramo(Tramo tramo) {
+		this.nuevoTramo = tramo;
+	}
+	
+	
+	public String comenzarNuevo() {
+		this.nuevoTramo = new Tramo();
+		if (conversation.isTransient())
+			conversation.begin();
+		return "nuevoTramo";
+	}
+	
+	public String registrarNuevo() {
+		em.persist(nuevoTramo);
+		conversation.end();
+		return "volver";
+	}
 
 	public String comenzarModificacion(Tramo tramo) {
 		log.info("Poniendo Tramo" + tramo.getNombre());
@@ -62,13 +98,11 @@ public class TramoController implements Serializable {
 		return "modificar";
 	}
 
-	public void iniciarConversación() {
-
-	}
 
 	/**
+	 * El tramo a modificar
 	 * @param tramo
-	 *            the tramo to set
+	 *            
 	 */
 	public void setTramo(Tramo tramo) {
 		log.info("Poniendo Tramo" + tramo.getNombre());
@@ -91,7 +125,7 @@ public class TramoController implements Serializable {
 	 * Termina la conversación sin registrar los cambios
 	 * @return
 	 */
-	public String cancelarModificacion() {
+	public String cancelarConversacion() {
 		conversation.end();
 		log.info("Conversacion terminada por cancelacion.");
 		return "volver";

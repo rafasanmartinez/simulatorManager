@@ -10,7 +10,7 @@
 	<ui:define name="content">
 		<f:metadata>
 			<f:event type="preRenderView"
-				listener="#{preRender.log('tramoscrudmodify.xhtml')}" />
+				listener="#{preRender.log('tramoscrudnew.xhtml')}" />
 		</f:metadata>
 		<style type="text/css">
 #cuerpoDePanel_body {
@@ -22,13 +22,13 @@
 			<f:facet name="header">Modificar Tramo</f:facet>
 			<div class="formDeEntradaContainer" style="margin-top: 20px">
 				<h:form id="formBody">
-					<my:tramoForm tramo="#{tramoController.tramo}" />
+					<my:tramoForm tramo="#{tramoController.nuevoTramo}" />
 
 					<div class="barraDeComandosContainer">
 						<div class="barraDeComandos">
 							<a4j:commandButton styleClass="botonCommand"
-								action="#{tramoController.registrarCambios()}"
-								value="Registrar Cambios" />
+								action="#{tramoController.registrarNuevo()}"
+								value="Registrar Tramo" />
 							<span class="botonSeparador">&#160;</span>
 							<a4j:commandButton styleClass="botonCommand" value="Cancelar"
 							action="#{tramoController.cancelarConversacion()}"  />

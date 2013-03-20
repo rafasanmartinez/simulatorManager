@@ -1,16 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <PROCESS model-entity="JSFProcess">
  <PROCESS-ITEM NAME="rules:#configuracion.xhtml"
-  PATH="/configuracion.xhtml" SHAPE="240,33,0,0" model-entity="JSFProcessGroup"/>
+  PATH="/configuracion.xhtml" SHAPE="224,8,50,25" model-entity="JSFProcessGroup"/>
  <PROCESS-ITEM NAME="rules:#index.xhtml" PATH="/index.xhtml"
-  SHAPE="32,161,0,0" model-entity="JSFProcessGroup"/>
+  SHAPE="224,-64,50,25" model-entity="JSFProcessGroup"/>
  <PROCESS-ITEM NAME="rules:#tramoscrud.xhtml" PATH="/tramoscrud.xhtml"
-  SHAPE="272,209,0,0" model-entity="JSFProcessGroup">
+  SHAPE="224,96,50,57" model-entity="JSFProcessGroup">
   <PROCESS-ITEM ID="rules:#tramoscrud.xhtml:0" NAME="item"
    PATH="/tramoscrud.xhtml" model-entity="JSFProcessItem">
    <PROCESS-ITEM-OUTPUT ID="modificar::#tramoscrudmodify.xhtml"
     NAME="output" PATH="/tramoscrudmodify.xhtml"
     TARGET="rules:#tramoscrudmodify.xhtml" TITLE="modificar" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="nuevoTramo::#tramoscrudnew.xhtml"
+    NAME="output1" PATH="/tramoscrudnew.xhtml"
+    TARGET="rules:#tramoscrudnew.xhtml" TITLE="nuevoTramo" model-entity="JSFProcessItemOutput"/>
   </PROCESS-ITEM>
  </PROCESS-ITEM>
  <PROCESS-ITEM NAME="rules:" SHAPE="32,17,0,0" model-entity="JSFProcessGroup">
@@ -29,7 +32,7 @@
   </PROCESS-ITEM>
  </PROCESS-ITEM>
  <PROCESS-ITEM NAME="rules:#tramoscrudmodify.xhtml"
-  PATH="/tramoscrudmodify.xhtml" SHAPE="480,193,0,0" model-entity="JSFProcessGroup">
+  PATH="/tramoscrudmodify.xhtml" SHAPE="520,8,50,41" model-entity="JSFProcessGroup">
   <PROCESS-ITEM ID="rules:#tramoscrudmodify.xhtml:0" NAME="item"
    PATH="/tramoscrudmodify.xhtml" model-entity="JSFProcessItem">
    <PROCESS-ITEM-OUTPUT ID="volver::#tramoscrud.xhtml" NAME="output"
@@ -38,6 +41,15 @@
   </PROCESS-ITEM>
  </PROCESS-ITEM>
  <PROCESS-ITEM NAME="rules:#datosCaducados.xhtml"
-  PATH="/datosCaducados.xhtml" SHAPE="141,258,0,0"
+  PATH="/datosCaducados.xhtml" SHAPE="216,240,50,25"
   model-entity="JSFProcessGroup" persistent="true"/>
+ <PROCESS-ITEM NAME="rules:#tramoscrudnew.xhtml"
+  PATH="/tramoscrudnew.xhtml" SHAPE="512,152,50,41" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:#tramoscrudnew.xhtml:0" NAME="item"
+   PATH="/tramoscrudnew.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT ID="volver::#tramoscrud.xhtml" NAME="output"
+    PATH="/tramoscrud.xhtml" TARGET="rules:#tramoscrud.xhtml"
+    TITLE="volver" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
 </PROCESS>

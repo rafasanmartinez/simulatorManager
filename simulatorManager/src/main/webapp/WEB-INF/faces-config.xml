@@ -47,6 +47,10 @@
    <to-view-id>/tramoscrudmodify.xhtml</to-view-id>
    <redirect/>
   </navigation-case>
+  <navigation-case>
+   <from-outcome>nuevoTramo</from-outcome>
+   <to-view-id>/tramoscrudnew.xhtml</to-view-id>
+  </navigation-case>
  </navigation-rule>
  <navigation-rule>
   <display-name>Modificación de Tramos</display-name>
@@ -56,6 +60,13 @@
    <from-outcome>volver</from-outcome>
    <to-view-id>/tramoscrud.xhtml</to-view-id>
    <redirect/>
+  </navigation-case>
+ </navigation-rule>
+ <navigation-rule>
+  <from-view-id>/tramoscrudnew.xhtml</from-view-id>
+  <navigation-case>
+   <from-outcome>volver</from-outcome>
+   <to-view-id>/tramoscrud.xhtml</to-view-id>
   </navigation-case>
  </navigation-rule>
  <factory>
