@@ -23,4 +23,9 @@ public class PageController implements Serializable {
 	{
 		return "tramosCrud";
 	}
+	
+	public String volver()
+	{
+		return "volver";
+	}
 }

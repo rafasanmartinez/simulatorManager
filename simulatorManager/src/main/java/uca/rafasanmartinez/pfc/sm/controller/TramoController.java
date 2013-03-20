@@ -75,11 +75,25 @@ public class TramoController implements Serializable {
 		this.tramo = tramo;
 	}
 
+	/**
+	 * Registra los cambios el la capa de persistencia
+	 * @return
+	 */
 	public String registrarCambios() {
 		log.info("Registrando Cambios en tramo" + tramo.getNombre());
 		em.merge(tramo);
 		conversation.end();
 		log.info("Conversacion terminada");
+		return "volver";
+	}
+	
+	/**
+	 * Termina la conversación sin registrar los cambios
+	 * @return
+	 */
+	public String cancelarModificacion() {
+		conversation.end();
+		log.info("Conversacion terminada por cancelacion.");
 		return "volver";
 	}
 
@@ -102,4 +116,6 @@ public class TramoController implements Serializable {
 
 	}
 
+	
+	
 }

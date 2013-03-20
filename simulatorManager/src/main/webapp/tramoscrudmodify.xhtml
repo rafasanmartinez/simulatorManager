@@ -20,7 +20,7 @@
 		<rich:panel headerClass="panelTodaPaginaCabecera"
 			styleClass="panelTodaPagina" id="cuerpoDePanel">
 			<f:facet name="header">Modificar Tramo</f:facet>
-			<div class="formDeEntrada" style="margin-top: 20px">
+			<div class="formDeEntradaContainer" style="margin-top: 20px">
 				<h:form id="formBody">
 					<my:tramoForm tramo="#{tramoController.tramo}" />
 
@@ -30,7 +30,8 @@
 								action="#{tramoController.registrarCambios()}"
 								value="Registrar Cambios" />
 							<span class="botonSeparador">&#160;</span>
-							<a4j:commandButton styleClass="botonCommand" value="Cancelar" />
+							<a4j:commandButton styleClass="botonCommand" value="Cancelar"
+							action="#{tramoController.cancelarModificacion()}"  />
 						</div>
 					</div>
 
