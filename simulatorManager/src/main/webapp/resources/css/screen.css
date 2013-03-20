@@ -7,6 +7,7 @@ div {
 input {
 	margin:none;
 }
+
 /* Core styles for the page */
 body {
   width:100%;
@@ -48,6 +49,7 @@ body {
 	min-height:490px;
 	border:none;
 	background-color: white;
+	
 }
 
 .panelTodaPaginaCabecera {
@@ -325,4 +327,24 @@ label {
 
 .contenedorPaginaError {
     margin-top:5px;
+}
+
+.barraDeComandosForm {
+	display:block;
+	clear:both;
+	padding-left:20px;	
+}
+
+.formDeEntrada {
+	display:inline-block;
+	margin-top: 20px;
+	margin-bottom: 20px;
+	margin-left:auto;
+	margin-right:auto;
+	border: 1px solid black;
+}
+
+.botonCommand {
+	font-size:1em !important;
+	padding:3px;
 }
