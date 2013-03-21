@@ -106,8 +106,7 @@ text-align:left;
   float:left;
 }
 
-.avisoFijo {
-	
+.avisoFijo {	
 	font-type: 1.3em;
 	font-weight:bold;
 	text-align: center;
@@ -326,6 +325,16 @@ label {
 
 .contenedorPaginaError {
     margin-top:5px;
+}
+
+.crudBarraBotonesContainer {
+	display:block;
+	margin-top:10px;
+	margin-bottom:10px;
+}
+
+.crudBarraBotones {
+	display:inline-block;
 }
 
 .formDeEntradaContainer {

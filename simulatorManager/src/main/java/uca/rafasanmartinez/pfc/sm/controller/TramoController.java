@@ -126,6 +126,7 @@ public class TramoController implements Serializable {
 	 * @return
 	 */
 	public String cancelarConversacion() {
+		log.info("Entrando en cancelar conversación");
 		conversation.end();
 		log.info("Conversacion terminada por cancelacion.");
 		return "volver";

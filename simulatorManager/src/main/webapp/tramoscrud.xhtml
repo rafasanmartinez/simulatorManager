@@ -30,7 +30,8 @@
 					</div>
 				</div>
 
-				<rich:panel rendered="#{empty tramos}" styleClass="avisoFijo">
+				
+				<rich:panel rendered="#{empty tramos}" styleClass="avisoFijo" style="clear:both;">
 					<h:outputText
 						value="No se han especificado tramos hasta este momento" />
 				</rich:panel>
@@ -38,7 +39,7 @@
 
 				<rich:dataTable id="tablaTramos" rendered="#{not empty tramos}"
 					value="#{tramos}" var="_tramo"
-					styleClass="tablaMantenimientoTodaPagina">
+					styleClass="tablaMantenimientoTodaPagina" style="clear:both;">
 
 					<rich:column id="modificarOBorrar">
 
