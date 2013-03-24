@@ -50,6 +50,7 @@
   <navigation-case>
    <from-outcome>nuevoTramo</from-outcome>
    <to-view-id>/tramoscrudnew.xhtml</to-view-id>
+   <redirect/>
   </navigation-case>
  </navigation-rule>
  <navigation-rule>
@@ -67,6 +68,7 @@
   <navigation-case>
    <from-outcome>volver</from-outcome>
    <to-view-id>/tramoscrud.xhtml</to-view-id>
+   <redirect/>
   </navigation-case>
  </navigation-rule>
  <factory>

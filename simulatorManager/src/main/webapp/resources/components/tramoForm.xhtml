@@ -10,48 +10,46 @@
 
 <!-- INTERFACE -->
 <composite:interface>
-	<composite:attribute name="tramo" />
+	<composite:attribute name="p_tramo" />
 </composite:interface>
 
 <!-- IMPLEMENTATION -->
 <composite:implementation>
+
 	<div style="display: table">
 				 
 		<div style="display: table-row">
 			<my:labeledInput etiqueta="Nombre" nombre="nombre"
-				valor="#{tramo.nombre}" longitud="60" />
+				valor="#{cc.attrs.p_tramo.nombre}" longitud="60" id="compositeNombre"/>
 		</div>
 	    
 		<div style="display: table-row">
 			<my:labeledInput etiqueta="Sentido" nombre="sentido"
-				valor="#{tramo.sentido}" longitud="60" />
+				valor="#{cc.attrs.p_tramo.sentido}" longitud="60" />
 		</div>
 		
 		<div style="display: table-row">
 			<my:labeledInput etiqueta="Longitud (m)" nombre="longitud"
-				valor="#{tramo.longitud}" longitud="20" />
+				valor="#{cc.attrs.p_tramo.longitud}" longitud="20" />
 		</div>
 		<div style="display: table-row">
 			<my:labeledInput etiqueta="Sensor Entrada" nombre="loopEntrada"
-				valor="#{tramo.loopEntrada}" longitud="20" />
+				valor="#{cc.attrs.p_tramo.loopEntrada}" longitud="20" />
 		</div>
 		<div style="display: table-row">
 			<my:labeledInput etiqueta="Sensor Salida" nombre="loopSalida"
-				valor="#{tramo.loopSalida}" longitud="20" />
+				valor="#{cc.attrs.p_tramo.loopSalida}" longitud="20" />
 		</div>
 		<div style="display: table-row">
 			<my:labeledInput etiqueta="Umbral Tráfico Pesado (s)"
-				nombre="umbralSegundosPesado" valor="#{tramo.umbralSegundosPesado}"
+				nombre="umbralSegundosPesado" valor="#{cc.attrs.p_tramo.umbralSegundosPesado}"
 				longitud="15" />
 		</div>
 		<div style="display: table-row">
 			<my:labeledInput etiqueta="Umbral Atasco (s)"
-				nombre="umbralSegundosAtasco" valor="#{tramo.umbralSegundosAtasco}"
+				nombre="umbralSegundosAtasco" valor="#{cc.attrs.p_tramo.umbralSegundosAtasco}"
 				longitud="15" />
 		</div>
-	</div>
-	<div style="commandBar">
-		
 	</div>
 </composite:implementation>
 </html>

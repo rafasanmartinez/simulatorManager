@@ -9,13 +9,13 @@ public class SimulatorExceptionHandlerFactory extends ExceptionHandlerFactory {
 	
 	public SimulatorExceptionHandlerFactory(ExceptionHandlerFactory parent) {
 		super();
-		System.out.println("Creando factoría");
+		//System.out.println("Creando factoría");
 		this.parent = parent;
 	}
 
 	@Override
 	public ExceptionHandler getExceptionHandler() {
-		System.out.println("Obteniendo Exception Handler");
+		//System.out.println("Obteniendo Exception Handler");
 		return new SimulatorExceptionHandler(this.parent.getExceptionHandler());
 	}
 

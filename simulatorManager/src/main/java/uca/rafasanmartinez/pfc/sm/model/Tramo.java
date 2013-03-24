@@ -25,41 +25,41 @@ public class Tramo implements Serializable
    @Column(name = "version")
    private int version = 0;
 
-   @NotNull
+   @NotNull(message="Sensor de entrada no puede estar vacío")
+   @Column 
+   @Size(message = "El nombre del sensor no puede tener más de 20 caracteres", max = 20)
+   private String loopEntrada = "Entrar loop entrada";
+
+   @NotNull(message="Sensor de salida no puede estar vacío")
    @Column
    @Size(message = "El nombre del sensor no puede tener más de 20 caracteres", max = 20)
-   private String loopEntrada;
+   private String loopSalida = "Entrar loop salida";
 
-   @NotNull
-   @Column
-   @Size(message = "El nombre del sensor no puede tener más de 20 caracteres", max = 20)
-   private String loopSalida;
-
-   @NotNull
+   @NotNull(message="Nombre de la vía no puede estar vacío")
    @Column
    @Size(message = "El nombre de la vía no puede tener más de 60 caracteres", max = 60)
-   private String nombre;
+   private String nombre = "Entrar nombre";
 
-   @NotNull
+   @NotNull(message="La longitud no puede estar vacía")
    @Column
    /*@Pattern(message = "Ha de ser un número natural", regexp = "^(?:0|[1-9]\\d*)$")*/
    private
-   int longitud;
+   int longitud = 0;
 
-   @NotNull
+   @NotNull(message="Umbral de segundos atasco no puede estar vacío")
    @Column
    /* @Pattern(message = "Ha de ser un número natural", regexp = "^(?:0|[1-9]\\d*)$") */
-   private int umbralSegundosAtasco;
+   private int umbralSegundosAtasco = 0;
 
-   @NotNull
+   @NotNull(message="Umbral de segundos tráfico pesado no puede estar vacío")
    @Column
    /* @Pattern(message = "Ha de ser un número natural", regexp = "^(?:0|[1-9]\\d*)$") */
-   private int umbralSegundosPesado;
+   private int umbralSegundosPesado = 0;
 
-   @NotNull
+   @NotNull(message="Sentido de la vía no puede estar vacío")
    @Column
    @Size(message = "El nombre del sentido no puede tener más de 60 caracteres", max = 60)
-   private String sentido;
+   private String sentido= "Entrar sentido" ;
 
    public Long getId()
    {

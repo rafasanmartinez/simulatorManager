@@ -17,12 +17,13 @@
 	text-align: center;
 }
 </style>
+
 		<rich:panel headerClass="panelTodaPaginaCabecera"
 			styleClass="panelTodaPagina" id="cuerpoDePanel">
 			<f:facet name="header">Tramo Nuevo</f:facet>
 			<div class="formDeEntradaContainer" style="margin-top: 20px">
-				<h:form id="formBody">
-					<my:tramoForm tramo="#{tramoController.nuevoTramo}" />
+				<h:form id="formBody" >
+					<my:tramoForm p_tramo="#{tramoController.nuevoTramo}" id="compositeForm"  />
 
 					<div class="barraDeComandosContainer">
 						<div class="barraDeComandos">
@@ -35,12 +36,13 @@
 						</div>
 					</div>
 
-					<!--  <h:outputText value="#{tramoController.conversationInfo}"
-						id="conversationInfo" /> -->
+					  <h:outputText value="#{tramoController.conversationInfo}"
+						id="conversationInfo" />
 				</h:form>
 			</div>
 		</rich:panel>
-
+		
+		
 
 	</ui:define>
 </ui:composition>

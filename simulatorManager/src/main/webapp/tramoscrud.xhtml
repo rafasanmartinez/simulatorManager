@@ -16,13 +16,7 @@
 			styleClass="panelTodaPagina">
 			<f:facet name="header">Mantenimiento de Tramos</f:facet>
 			<h:form id="formBody">
-				<!--  
-			<div id="#barraMenuBotones">
-				<div class="botonComando">
-					<a4j:commandButton value="Nuevo Tramo"/>
-				</div>
-			</div>
-			-->
+
 				<div class="crudBarraBotonesContainer">
 					<div class="crudBarraBotones">
 						<a4j:commandButton styleClass="botonCommand"
@@ -30,8 +24,9 @@
 					</div>
 				</div>
 
-				
-				<rich:panel rendered="#{empty tramos}" styleClass="avisoFijo" style="clear:both;">
+
+				<rich:panel rendered="#{empty tramos}" styleClass="avisoFijo"
+					style="clear:both;">
 					<h:outputText
 						value="No se han especificado tramos hasta este momento" />
 				</rich:panel>
@@ -82,7 +77,7 @@
 				</rich:dataTable>
 			</h:form>
 
-			<!-- <h:outputText value="#{tramoController.conversationInfo}" /> -->
+			<h:outputText value="#{tramoController.conversationInfo}" />
 
 
 		</rich:panel>

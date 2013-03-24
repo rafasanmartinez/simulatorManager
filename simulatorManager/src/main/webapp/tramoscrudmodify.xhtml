@@ -22,8 +22,9 @@
 			<f:facet name="header">Modificar Tramo</f:facet>
 			<div class="formDeEntradaContainer" style="margin-top: 20px">
 				<h:form id="formBody">
-					<my:tramoForm tramo="#{tramoController.tramo}" />
-
+				
+					<my:tramoForm p_tramo="#{tramoController.tramo}" id="compositeForm"/>
+					
 					<div class="barraDeComandosContainer">
 						<div class="barraDeComandos">
 							<a4j:commandButton styleClass="botonCommand"
@@ -35,8 +36,8 @@
 						</div>
 					</div>
 
-					<!--  <h:outputText value="#{tramoController.conversationInfo}"
-						id="conversationInfo" /> -->
+					<h:outputText value="#{tramoController.conversationInfo}"
+						id="conversationInfo" />
 				</h:form>
 			</div>
 		</rich:panel>

@@ -14,7 +14,7 @@
 
 <!-- IMPLEMENTATION -->
 <composite:implementation>
-    <h:panelGrid columns="3" columnClasses="titleCell">
+    <h:panelGrid columns="3" columnClasses="titleCell" id="panel">
         <h:outputLabel for="name" value="Name:"/>
         <h:inputText id="name" value="#{cc.attrs.member.name}">
             <rich:validator/>

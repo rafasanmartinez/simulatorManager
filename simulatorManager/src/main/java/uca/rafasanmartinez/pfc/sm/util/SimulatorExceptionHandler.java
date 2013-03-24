@@ -19,7 +19,7 @@ public class SimulatorExceptionHandler extends ExceptionHandlerWrapper {
 	public SimulatorExceptionHandler(ExceptionHandler wrapped) {
 		super();
 		this.wrapped = wrapped;
-		System.out.println("Creando wrapper");
+		//System.out.println("Creando wrapper");
 	}
 
 	@Override
@@ -29,13 +29,12 @@ public class SimulatorExceptionHandler extends ExceptionHandlerWrapper {
 
 	@Override
 	public void handle() throws FacesException {
-		System.out.println("Metiendo mano a las excepciones");
+		//System.out.println("Metiendo mano a las excepciones");
 		 for (final Iterator<ExceptionQueuedEvent> it = getUnhandledExceptionQueuedEvents().iterator(); it.hasNext();) {
 			   Throwable t = it.next().getContext().getException();
 			   
 			   if(t.getClass().getName().equals("org.jboss.weld.context.NonexistentConversationException"))
 			   {
-				    LOG.info("Te pillé");
 				    final FacesContext facesContext = FacesContext.getCurrentInstance();
 				    ConfigurableNavigationHandler nav = (ConfigurableNavigationHandler) facesContext.getApplication().getNavigationHandler();
 				    //final ExternalContext externalContext = facesContext.getExternalContext();
@@ -48,8 +47,12 @@ public class SimulatorExceptionHandler extends ExceptionHandlerWrapper {
 					    System.out.println("Mensaje de error: " + t.getMessage() + " Class: " + t.getClass().getName());
 					   }  
 			   }
-			   else
+			   else {
+				   
+				   t.printStackTrace();
 				   getWrapped().handle();
+			   }
+				   
 			 
 		}
 		 

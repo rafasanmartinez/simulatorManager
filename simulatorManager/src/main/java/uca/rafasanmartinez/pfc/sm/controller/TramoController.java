@@ -62,7 +62,11 @@ public class TramoController implements Serializable {
 	 */
 	@Produces
 	@Named
-	public Tramo getNuevoTramo() {		
+	public Tramo getNuevoTramo() {	
+		if (nuevoTramo == null)
+			log.info("Obteniendo Nuevo Tramo nulo");
+		else
+			log.info("Obteniendo Nuevo Tramo (" + nuevoTramo.getNombre() + ")");
 		return nuevoTramo;
 	}
 	
@@ -77,9 +81,9 @@ public class TramoController implements Serializable {
 	
 	
 	public String comenzarNuevo() {
-		this.nuevoTramo = new Tramo();
 		if (conversation.isTransient())
 			conversation.begin();
+		
 		return "nuevoTramo";
 	}
 	
@@ -135,6 +139,9 @@ public class TramoController implements Serializable {
 	@PostConstruct
 	public void inicializacion() {
 		log.info("Creando controlador de Tramos");
+		log.info("Inicializando tramo nuevo");
+		log.info("Creando nuevo tramo");
+		this.nuevoTramo = new Tramo();
 	}
 
 	@PreDestroy
