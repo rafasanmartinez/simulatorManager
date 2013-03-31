@@ -62,9 +62,9 @@ public class TramoController implements Serializable {
 	@Named
 	public Tramo getTramo() {
 		if (tramo == null)
-			log.info("Obteniendo Tramo nulo");
+			log.fine("Obteniendo Tramo nulo");
 		else
-			log.info("Obteniendo Tramo" + tramo.getNombre());
+			log.fine("Obteniendo Tramo" + tramo.getNombre());
 		return tramo;
 	}
 
@@ -77,9 +77,9 @@ public class TramoController implements Serializable {
 	@Named
 	public Tramo getNuevoTramo() {
 		if (nuevoTramo == null)
-			log.info("Obteniendo Nuevo Tramo nulo");
+			log.fine("Obteniendo Nuevo Tramo nulo");
 		else
-			log.info("Obteniendo Nuevo Tramo (" + nuevoTramo.getNombre() + ")");
+			log.fine("Obteniendo Nuevo Tramo (" + nuevoTramo.getNombre() + ")");
 		return nuevoTramo;
 	}
 
@@ -94,6 +94,7 @@ public class TramoController implements Serializable {
 	}
 
 	public String comenzarNuevo() {
+		
 		if (conversation.isTransient())
 			conversation.begin();
 
@@ -104,22 +105,7 @@ public class TramoController implements Serializable {
 		try {
 			em.persist(nuevoTramo);
 		} catch (Exception e) {
-			String rootMessage = getRootErrorMessage(e);
-
-			if (rootMessage.startsWith("Duplicate entry")) {
-				// eventoErrorActualizando.fire("Entrada Duplicada. No pueden existir tramos con el mismo nombre y sentido");
-				FacesMessage m = new FacesMessage(FacesMessage.SEVERITY_ERROR,
-						"Tramo duplicado: ",
-						"No pueden existir tramos con el mismo nombre y sentido");
-				facesContext.addMessage(null, m);
-			} else {
-				// eventoErrorActualizando.fire("Problema inesperado al salvar nueva entrada: "
-				// + rootMessage);
-				FacesMessage m = new FacesMessage(FacesMessage.SEVERITY_ERROR,
-						"Problema inesperado al salvar nuevo tramo: ",
-						rootMessage);
-				facesContext.addMessage(null, m);
-			}
+			procesarExcepcionActualizacion(e);
 			return null;
 		}
 		conversation.end();
@@ -127,11 +113,11 @@ public class TramoController implements Serializable {
 	}
 
 	public String comenzarModificacion(Tramo tramo) {
-		log.info("Poniendo Tramo" + tramo.getNombre());
+		log.fine("Poniendo Tramo" + tramo.getNombre());
 		this.tramo = tramo;
 		if (conversation.isTransient())
 			conversation.begin();
-		log.info("Iniciando conversación " + conversation.getId());
+		log.fine("Iniciando conversación " + conversation.getId());
 		return "modificar";
 	}
 
@@ -142,7 +128,7 @@ public class TramoController implements Serializable {
 	 * 
 	 */
 	public void setTramo(Tramo tramo) {
-		log.info("Poniendo Tramo" + tramo.getNombre());
+		log.fine("Poniendo Tramo" + tramo.getNombre());
 		this.tramo = tramo;
 	}
 
@@ -152,10 +138,16 @@ public class TramoController implements Serializable {
 	 * @return
 	 */
 	public String registrarCambios() {
-		log.info("Registrando Cambios en tramo" + tramo.getNombre());
-		em.merge(tramo);
+		log.fine("Registrando Cambios en tramo" + tramo.getNombre());
+		try {
+			em.merge(tramo);
+			em.flush();
+		} catch (Exception e) {
+			procesarExcepcionActualizacion(e);
+			return null;
+		}
 		conversation.end();
-		log.info("Conversacion terminada");
+		log.fine("Conversacion terminada");
 		return "volver";
 	}
 
@@ -165,23 +157,23 @@ public class TramoController implements Serializable {
 	 * @return
 	 */
 	public String cancelarConversacion() {
-		log.info("Entrando en cancelar conversación");
+		log.fine("Entrando en cancelar conversación");
 		conversation.end();
-		log.info("Conversacion terminada por cancelacion.");
+		log.fine("Conversacion terminada por cancelacion.");
 		return "volver";
 	}
 
 	@PostConstruct
 	public void inicializacion() {
-		log.info("Creando controlador de Tramos");
-		log.info("Inicializando tramo nuevo");
-		log.info("Creando nuevo tramo");
+		log.fine("Creando controlador de Tramos");
+		log.fine("Inicializando tramo nuevo");
+		log.fine("Creando nuevo tramo");
 		this.nuevoTramo = new Tramo();
 	}
 
 	@PreDestroy
 	public void destruccion() {
-		log.info("Destruyendo el controlador.");
+		log.fine("Destruyendo el controlador.");
 	}
 
 	public String getConversationInfo() {
@@ -210,6 +202,26 @@ public class TramoController implements Serializable {
 		}
 		// This is the root cause message
 		return errorMessage;
+	}
+	
+	private void procesarExcepcionActualizacion(Exception e)
+	{
+		String rootMessage = getRootErrorMessage(e);
+
+		if (rootMessage.startsWith("Duplicate entry")) {
+			// eventoErrorActualizando.fire("Entrada Duplicada. No pueden existir tramos con el mismo nombre y sentido");
+			FacesMessage m = new FacesMessage(FacesMessage.SEVERITY_ERROR,
+					"Tramo duplicado: ",
+					"No pueden existir tramos con el mismo nombre y sentido");
+			facesContext.addMessage(null, m);
+		} else {
+			// eventoErrorActualizando.fire("Problema inesperado al salvar nueva entrada: "
+			// + rootMessage);
+			FacesMessage m = new FacesMessage(FacesMessage.SEVERITY_ERROR,
+					"Problema inesperado al salvar nuevo tramo: ",
+					rootMessage);
+			facesContext.addMessage(null, m);
+		}
 	}
 
 }

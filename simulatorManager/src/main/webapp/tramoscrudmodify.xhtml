@@ -8,15 +8,7 @@
 	xmlns:rich="http://richfaces.org/rich"
 	xmlns:my="http://java.sun.com/jsf/composite/components">
 	<ui:define name="content">
-		<f:metadata>
-			<f:event type="preRenderView"
-				listener="#{preRender.log('tramoscrudmodify.xhtml')}" />
-		</f:metadata>
-		<style type="text/css">
-#cuerpoDePanel_body {
-	text-align: center;
-}
-</style>
+	<my:estilosYScriptsCrud/>
 		<rich:panel headerClass="panelTodaPaginaCabecera"
 			styleClass="panelTodaPagina" id="cuerpoDePanel">
 			<f:facet name="header">Modificar Tramo</f:facet>
@@ -26,6 +18,7 @@
 					<my:tramoForm p_tramo="#{tramoController.tramo}" id="compositeForm"/>
 					
 					<div class="barraDeComandosContainer">
+					<rich:messages globalOnly="true" showDetail="true" styleClass="errorGlobal" />
 						<div class="barraDeComandos">
 							<a4j:commandButton styleClass="botonCommand"
 								action="#{tramoController.registrarCambios()}"

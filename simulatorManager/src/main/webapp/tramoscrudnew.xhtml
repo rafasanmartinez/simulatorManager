@@ -8,20 +8,7 @@
 	xmlns:rich="http://richfaces.org/rich"
 	xmlns:my="http://java.sun.com/jsf/composite/components">
 	<ui:define name="content">
-		<f:metadata>
-			<f:event type="preRenderView"
-				listener="#{preRender.log('tramoscrudnew.xhtml')}" />
-		</f:metadata>
-		<style type="text/css">
-#cuerpoDePanel_body {
-	text-align: center;
-}
-.errorGlobal {
-	display:block;
-	text-align: left;
-	margin-bottom:20px;
-}
-</style>
+	<my:estilosYScriptsCrud />
 		<h:outputScript target="head" name="mostrarMensajeDeError.js"
 			library="js" />
 		<rich:panel headerClass="panelTodaPaginaCabecera"

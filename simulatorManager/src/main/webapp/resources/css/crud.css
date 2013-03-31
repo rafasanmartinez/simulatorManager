@@ -1,0 +1,9 @@
+@CHARSET "ISO-8859-1";
+#cuerpoDePanel_body {
+	text-align: center;
+}
+.errorGlobal {
+	display:block;
+	text-align: left;
+	margin-bottom:20px;
+}
