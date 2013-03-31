@@ -16,33 +16,45 @@
 #cuerpoDePanel_body {
 	text-align: center;
 }
+.errorGlobal {
+	display:block;
+	text-align: left;
+	margin-bottom:20px;
+}
 </style>
-
+		<h:outputScript target="head" name="mostrarMensajeDeError.js"
+			library="js" />
 		<rich:panel headerClass="panelTodaPaginaCabecera"
 			styleClass="panelTodaPagina" id="cuerpoDePanel">
 			<f:facet name="header">Tramo Nuevo</f:facet>
 			<div class="formDeEntradaContainer" style="margin-top: 20px">
-				<h:form id="formBody" >
-					<my:tramoForm p_tramo="#{tramoController.nuevoTramo}" id="compositeForm"  />
-
+				<h:form id="formBody">
+					<my:tramoForm p_tramo="#{tramoController.nuevoTramo}"
+						id="compositeForm" />
+					
 					<div class="barraDeComandosContainer">
+					<rich:messages globalOnly="true" showDetail="true" styleClass="errorGlobal" />
+					<!--  <div id="mensajesDeError"></div> -->
 						<div class="barraDeComandos">
 							<a4j:commandButton styleClass="botonCommand"
 								action="#{tramoController.registrarNuevo()}"
 								value="Registrar Nuevo Tramo" />
 							<span class="botonSeparador">&#160;</span>
 							<a4j:commandButton styleClass="botonCommand" value="Cancelar"
-							action="#{tramoController.cancelarConversacion()}"  />
+								action="#{tramoController.cancelarConversacion()}" />
 						</div>
 					</div>
 
-					  <h:outputText value="#{tramoController.conversationInfo}"
+					<h:outputText value="#{tramoController.conversationInfo}"
 						id="conversationInfo" />
 				</h:form>
 			</div>
 		</rich:panel>
-		
-		
+
+		<!--  <a4j:push address="errorActualizando"
+			ondataavailable="mostrarMensajeDeError(event.rf.data)">
+		</a4j:push> -->
+
 
 	</ui:define>
 </ui:composition>
