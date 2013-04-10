@@ -11,11 +11,14 @@ import javax.enterprise.inject.Produces;
 import javax.inject.Inject;
 import javax.inject.Named;
 
+import uca.rafasanmartinez.pfc.sm.controller.Deleted;
+import uca.rafasanmartinez.pfc.sm.controller.Registered;
+import uca.rafasanmartinez.pfc.sm.controller.Updated;
 import uca.rafasanmartinez.pfc.sm.model.Tramo;
 
 @RequestScoped
 public class TramoListProducer {
-	
+
 	@Inject
 	Logger log;
 
@@ -32,13 +35,29 @@ public class TramoListProducer {
 
 	@PostConstruct
 	public void obtenerTodosLotTramosPorNombreYSentido() {
-		
+
 		tramos = tramoRepository.listaTodosOrdenadosPorNombreYSentido();
 	}
+
+	// Observers para actualizar la lista
 	
-    public void onMemberListChanged(@Observes(notifyObserver = Reception.IF_EXISTS) final Tramo member) {
-        log.info("Escuchada modificacion en tramos");
-    	obtenerTodosLotTramosPorNombreYSentido();
-    }
+	public void onTramoListDeleted(
+			@Observes( notifyObserver = Reception.IF_EXISTS) @Deleted Tramo tramo) {
+		log.info("Tramo " + tramo.getNombre() + " borrado.");
+		obtenerTodosLotTramosPorNombreYSentido();
+	}
+
+	public void onTramoListRegistered(
+			@Observes(notifyObserver = Reception.IF_EXISTS) @Registered Tramo tramo) {
+		log.info("Tramo " + tramo.getNombre() + " creado.");
+		obtenerTodosLotTramosPorNombreYSentido();
+	}
+
+	public void onTramoListUpdated(
+			@Observes(notifyObserver = Reception.IF_EXISTS) @Updated Tramo tramo) {
+		log.info("Tramo " + tramo.getNombre() + " modificado.");
+		obtenerTodosLotTramosPorNombreYSentido();
+	}
+
 
 }

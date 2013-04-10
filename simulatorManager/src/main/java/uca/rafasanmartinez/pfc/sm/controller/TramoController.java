@@ -9,7 +9,9 @@ import javax.ejb.Stateful;
 import javax.enterprise.context.Conversation;
 import javax.enterprise.context.ConversationScoped;
 import javax.enterprise.event.Event;
+import javax.enterprise.inject.Any;
 import javax.enterprise.inject.Produces;
+import javax.enterprise.util.AnnotationLiteral;
 import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
 import javax.inject.Inject;
@@ -17,8 +19,6 @@ import javax.inject.Named;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.PersistenceContextType;
-
-import org.richfaces.cdi.push.Push;
 
 import uca.rafasanmartinez.pfc.sm.model.Tramo;
 
@@ -43,8 +43,8 @@ public class TramoController implements Serializable {
 	private @Inject
 	Conversation conversation;
 	
-	//@Inject 
-	//Event<Tramo> 
+	@Inject @Any
+	Event<Tramo> tramoEvent;
 
 	// @Inject
 	// @Push(topic = "errorActualizando") Event<String> eventoErrorActualizando;
@@ -107,6 +107,7 @@ public class TramoController implements Serializable {
 	public String registrarNuevo() throws Exception {
 		try {
 			em.persist(nuevoTramo);
+			tramoEvent.select(new AnnotationLiteral<Registered>(){}).fire(nuevoTramo);
 		} catch (Exception e) {
 			procesarExcepcionActualizacion(e);
 			return null;
@@ -128,6 +129,7 @@ public class TramoController implements Serializable {
 		log.info("Borrando Tramo" + tramo.getNombre());
 		Tramo dTramo = em.find(Tramo.class, tramo.getId());
 		em.remove(dTramo);
+		tramoEvent.select(new AnnotationLiteral<Deleted>(){}).fire(tramo);
 		return "borrado";
 	}
 
@@ -152,6 +154,7 @@ public class TramoController implements Serializable {
 		try {
 			em.merge(tramo);
 			em.flush();
+			tramoEvent.select(new AnnotationLiteral<Updated>(){}).fire(tramo);
 		} catch (Exception e) {
 			procesarExcepcionActualizacion(e);
 			return null;
