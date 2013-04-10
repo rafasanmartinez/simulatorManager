@@ -27,50 +27,56 @@
 						value="No se han especificado tramos hasta este momento" />
 				</rich:panel>
 
+				<a4j:outputPanel id="tablaTramosPanel">
+					<rich:dataTable id="tablaTramos" rendered="#{not empty tramos}"
+						value="#{tramos}" var="_tramo"
+						styleClass="tablaMantenimientoTodaPagina" style="clear:both;">
 
-				<rich:dataTable id="tablaTramos" rendered="#{not empty tramos}"
-					value="#{tramos}" var="_tramo"
-					styleClass="tablaMantenimientoTodaPagina" style="clear:both;">
+						<rich:column id="modificarOBorrar">
 
-					<rich:column id="modificarOBorrar">
+							<h:commandLink styleClass="no-decor" execute="@this"
+								action="#{tramoController.comenzarModificacion(_tramo)}">
+								<h:graphicImage value="/resources/gfx/Edit_16x16.png"
+									height="11px" title="Modificar Tramo" />
+							</h:commandLink>
 
-						<h:commandLink styleClass="no-decor" execute="@this"
-							action="#{tramoController.comenzarModificacion(_tramo)}">
-							<h:graphicImage value="/resources/gfx/Edit_16x16.png"
-								height="11px" title="Modificar Tramo" />
-						</h:commandLink>
+							<a4j:commandLink render="tablaTramosPanel" execute="@this"
+								action="#{tramoController.borrarTramo(_tramo)}" >
+						Borrar
+						</a4j:commandLink>
 
-					</rich:column>
+						</rich:column>
 
-					<rich:column id="tramo_nombre">
-						<f:facet name="header">Nombre</f:facet>
+						<rich:column id="tramo_nombre">
+							<f:facet name="header">Nombre</f:facet>
                       #{_tramo.nombre}
                    </rich:column>
-					<rich:column id="tramo_sentido">
-						<f:facet name="header">Sentido</f:facet>
+						<rich:column id="tramo_sentido">
+							<f:facet name="header">Sentido</f:facet>
                       #{_tramo.sentido}
                    </rich:column>
-					<rich:column id="tramo_longitud">
-						<f:facet name="header">Longitud (m)</f:facet>
+						<rich:column id="tramo_longitud">
+							<f:facet name="header">Longitud (m)</f:facet>
                       #{_tramo.longitud}
                    </rich:column>
-					<rich:column id="tramo_loopEntrada">
-						<f:facet name="header">Sensor Entrada</f:facet>
+						<rich:column id="tramo_loopEntrada">
+							<f:facet name="header">Sensor Entrada</f:facet>
                       #{_tramo.loopEntrada}
                    </rich:column>
-					<rich:column id="tramo_loopSalida">
-						<f:facet name="header">Sensor Salida</f:facet>
+						<rich:column id="tramo_loopSalida">
+							<f:facet name="header">Sensor Salida</f:facet>
                       #{_tramo.loopSalida}
                    </rich:column>
-					<rich:column id="tramo_umbralSegundosPesado">
-						<f:facet name="header">Umbral Pesado (s)</f:facet>
+						<rich:column id="tramo_umbralSegundosPesado">
+							<f:facet name="header">Umbral Pesado (s)</f:facet>
                       #{_tramo.umbralSegundosPesado}
                    </rich:column>
-					<rich:column id="tramo_umbralSegundosAtasco">
-						<f:facet name="header">Umbral Atasco (s)</f:facet>
+						<rich:column id="tramo_umbralSegundosAtasco">
+							<f:facet name="header">Umbral Atasco (s)</f:facet>
                       #{_tramo.umbralSegundosAtasco}
                    </rich:column>
-				</rich:dataTable>
+					</rich:dataTable>
+				</a4j:outputPanel>
 			</h:form>
 
 			<h:outputText value="#{tramoController.conversationInfo}" />

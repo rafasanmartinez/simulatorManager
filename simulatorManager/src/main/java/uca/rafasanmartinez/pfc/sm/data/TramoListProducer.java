@@ -1,6 +1,7 @@
 package uca.rafasanmartinez.pfc.sm.data;
 
 import java.util.List;
+import java.util.logging.Logger;
 
 import javax.annotation.PostConstruct;
 import javax.enterprise.context.RequestScoped;
@@ -14,6 +15,9 @@ import uca.rafasanmartinez.pfc.sm.model.Tramo;
 
 @RequestScoped
 public class TramoListProducer {
+	
+	@Inject
+	Logger log;
 
 	@Inject
 	TramoRepository tramoRepository;
@@ -28,11 +32,13 @@ public class TramoListProducer {
 
 	@PostConstruct
 	public void obtenerTodosLotTramosPorNombreYSentido() {
+		
 		tramos = tramoRepository.listaTodosOrdenadosPorNombreYSentido();
 	}
 	
     public void onMemberListChanged(@Observes(notifyObserver = Reception.IF_EXISTS) final Tramo member) {
-        obtenerTodosLotTramosPorNombreYSentido();
+        log.info("Escuchada modificacion en tramos");
+    	obtenerTodosLotTramosPorNombreYSentido();
     }
 
 }

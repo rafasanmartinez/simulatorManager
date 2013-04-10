@@ -42,6 +42,9 @@ public class TramoController implements Serializable {
 
 	private @Inject
 	Conversation conversation;
+	
+	//@Inject 
+	//Event<Tramo> 
 
 	// @Inject
 	// @Push(topic = "errorActualizando") Event<String> eventoErrorActualizando;
@@ -119,6 +122,13 @@ public class TramoController implements Serializable {
 			conversation.begin();
 		log.fine("Iniciando conversación " + conversation.getId());
 		return "modificar";
+	}
+	
+	public String borrarTramo(Tramo tramo) {
+		log.info("Borrando Tramo" + tramo.getNombre());
+		Tramo dTramo = em.find(Tramo.class, tramo.getId());
+		em.remove(dTramo);
+		return "borrado";
 	}
 
 	/**
