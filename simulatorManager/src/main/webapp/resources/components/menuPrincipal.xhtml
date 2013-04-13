@@ -18,12 +18,13 @@
 	<h:form id="menuform">
 		<div id="menuprincipalcontainer">
 			<rich:toolbar id="menuPricipal" itemSeparator="line" height="30px">
-				<h:commandLink value="Home" styleClass="menuLink"
+				<h:commandLink value="Inicio" styleClass="menuLink"
 					action="#{pageController.goHome}" />
+				<h:commandLink value="Mantenimiento de Tramos" styleClass="menuLink"
+					action="#{pageController.goTramosCrud}" />
 				<h:commandLink value="Configuración" styleClass="menuLink"
 					action="#{pageController.goConfiguracion}" />
-				<h:commandLink value="Mantenimiento Tramos" styleClass="menuLink"
-					action="#{pageController.goTramosCrud}" />
+
 			</rich:toolbar>
 		</div>
 	</h:form>
