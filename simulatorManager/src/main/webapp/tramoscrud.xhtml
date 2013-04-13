@@ -34,16 +34,19 @@
 
 						<rich:column id="modificarOBorrar">
 
-							<h:commandLink styleClass="no-decor" execute="@this"
-								action="#{tramoController.comenzarModificacion(_tramo)}">
+							<h:commandLink execute="@this"
+								action="#{tramoController.comenzarModificacion(_tramo)}"
+								styleClass="iconoComandoLista">
 								<h:graphicImage value="/resources/gfx/Edit_16x16.png"
 									height="11px" title="Modificar Tramo" />
 							</h:commandLink>
-
+							<span class="separadorComandoLista">&#160;</span>
 							<a4j:commandLink render="tablaTramosPanel" execute="@this"
-								action="#{tramoController.borrarTramo(_tramo)}" >
-						Borrar
-						</a4j:commandLink>
+								action="#{tramoController.borrarTramo(_tramo)}"
+								styleClass="iconoComandoLista">
+								<h:graphicImage value="/resources/gfx/Delete_16x16.png"
+									height="11px" title="Modificar Tramo" />
+							</a4j:commandLink>
 
 						</rich:column>
 
@@ -79,7 +82,7 @@
 				</a4j:outputPanel>
 			</h:form>
 
-			<h:outputText value="#{tramoController.conversationInfo}" />
+			<!--  <h:outputText value="#{tramoController.conversationInfo}" /> -->
 
 
 		</rich:panel>

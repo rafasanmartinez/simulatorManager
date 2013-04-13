@@ -370,3 +370,18 @@ label {
 	display:block;
 	width:20px;
 }
+
+
+/* Estilos de los iconos de los comandos de modificar
+   y borrar en las listas de mantenimiento */
+
+.iconoComandoLista .separadorComandoLista {
+	float:left;
+	display:block;
+}
+
+.separadorComandoLista {
+	width:10px;
+}
+
+.

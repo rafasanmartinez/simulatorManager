@@ -34,30 +34,29 @@ public class TramoListProducer {
 	}
 
 	@PostConstruct
-	public void obtenerTodosLotTramosPorNombreYSentido() {
+	public void obtenerTodosLosTramosPorNombreYSentido() {
 
 		tramos = tramoRepository.listaTodosOrdenadosPorNombreYSentido();
 	}
 
 	// Observers para actualizar la lista
-	
+
 	public void onTramoListDeleted(
-			@Observes( notifyObserver = Reception.IF_EXISTS) @Deleted Tramo tramo) {
-		log.info("Tramo " + tramo.getNombre() + " borrado.");
-		obtenerTodosLotTramosPorNombreYSentido();
+			@Observes(notifyObserver = Reception.IF_EXISTS) @Deleted Tramo tramo) {
+		log.fine("Tramo " + tramo.getNombre() + " borrado.");
+		obtenerTodosLosTramosPorNombreYSentido();
 	}
 
 	public void onTramoListRegistered(
 			@Observes(notifyObserver = Reception.IF_EXISTS) @Registered Tramo tramo) {
-		log.info("Tramo " + tramo.getNombre() + " creado.");
-		obtenerTodosLotTramosPorNombreYSentido();
+		log.fine("Tramo " + tramo.getNombre() + " creado.");
+		obtenerTodosLosTramosPorNombreYSentido();
 	}
 
 	public void onTramoListUpdated(
 			@Observes(notifyObserver = Reception.IF_EXISTS) @Updated Tramo tramo) {
-		log.info("Tramo " + tramo.getNombre() + " modificado.");
-		obtenerTodosLotTramosPorNombreYSentido();
+		log.fine("Tramo " + tramo.getNombre() + " modificado.");
+		obtenerTodosLosTramosPorNombreYSentido();
 	}
-
 
 }

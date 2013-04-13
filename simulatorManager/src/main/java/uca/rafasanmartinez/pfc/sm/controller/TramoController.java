@@ -126,7 +126,7 @@ public class TramoController implements Serializable {
 	}
 	
 	public String borrarTramo(Tramo tramo) {
-		log.info("Borrando Tramo" + tramo.getNombre());
+		log.fine("Borrando Tramo" + tramo.getNombre());
 		Tramo dTramo = em.find(Tramo.class, tramo.getId());
 		em.remove(dTramo);
 		tramoEvent.select(new AnnotationLiteral<Deleted>(){}).fire(tramo);
